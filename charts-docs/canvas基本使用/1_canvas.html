@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0px;
+      padding: 0px;
+    }
+
+    canvas {
+      border: 2px solid black;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas width="500" height="500"></canvas>
+  <!-- 浏览器认为是一张图片 默认300*150 -->
+  <!-- canvas里面文本内容无效 子节点也无效 -->
+  <!-- 通过js完成 宽高用标签属性设置-->
+
+  <!-- canvas的基本 -->
+  <!-- <script>
+    //canvas里面的操作都通过js去完成
+    let canvas = document.querySelector('canvas')
+    //获取画布的上下文 就是一支笔 ctx是一个对象
+    let ctx = canvas.getContext('2d')
+    console.log(ctx);
+    // 绘制线段 起点设置
+    ctx.moveTo(50,50)
+    ctx.lineTo(100,100)
+    //是从上一次的终点为起点再lineTo
+    ctx.lineTo(50,100)
+    ctx.lineTo(100,50)
+    //将起点和最后的终点连接
+    ctx.closePath()
+    //封闭部分的颜色 
+    ctx.fillStyle = 'pink'
+    //填充封闭部分
+    ctx.fill()
+    //设置线段的颜色
+    ctx.strokeStyle = 'green'
+    ctx.lineWidth = '5'
+    //将线段绘制出来
+    ctx.stroke()
+  </script> -->
+  <!-- canvas画东西 -->
+  <script>
+    let canvas = document.querySelector('canvas')
+    let ctx = canvas.getContext('2d')
+    //canvas里面以左上顶点为原点 
+    //1.描边 不能填充颜色
+    ctx.strokeRect(50, 0, 30, 100)
+    // 左边距离左边框的距离  上边距离上边框的距离
+    // 宽 高 
+    //2.填充颜色
+    ctx.fillStyle = 'pink' //要再画图之前
+    ctx.fillRect(0, 0, 30, 100)
+
+    //画圆
+    //1.开始绘制圆
+    ctx.beginPath();
+    //2.画圆 x,y(圆心坐标),r,起始弧度,结束弧度 360° = 2*π*㎭   1㎭ ≈ 57°
+    // ctx.arc(50, 150, 50, 0, 2 * Math.PI)
+    ctx.arc(200,100,50,0,1,true)
+    ctx.fillStyle = 'blue'
+    ctx.fill()
+    //3.绘制
+    ctx.stroke()
+  </script>
+</body>
+
+</html>
